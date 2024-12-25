@@ -1,34 +1,33 @@
 ---
-title: Deriving the OLS Estimator
+title: OLS推定量の導出
 date: '2020-12-21'
-tags: ['next js', 'math', 'ols']
+tags: ['next js', '数学', 'ols']
 draft: false
-summary: 'How to derive the OLS Estimator with matrix notation and a tour of math typesetting using markdown with the help of KaTeX.'
+summary: '行列表記を用いてOLS推定量を導出する方法と、KaTeXを使用したMarkdownでの数式記述について解説します。'
 ---
 
-# Introduction
+# はじめに
 
-Parsing and display of math equations is included in this blog template. Parsing of math is enabled by `remark-math` and `rehype-katex`.
-KaTeX and its associated font is included in `_document.js` so feel free to use it on any page.
-[^footnote]
+このブログテンプレートには、数式の解析と表示機能が含まれています。数式の解析には `remark-math` と `rehype-katex` を使用しています。
+KaTeXと関連フォントは `_document.js` に含まれているため、どのページでも自由に使用できます。[^footnote]
 
-[^footnote]: For the full list of supported TeX functions, check out the [KaTeX documentation](https://katex.org/docs/supported.html)
+[^footnote]: サポートされているTeX関数の完全なリストについては、[KaTeXドキュメント](https://katex.org/docs/supported.html) をご覧ください。
 
-Inline math symbols can be included by enclosing the term between the `$` symbol.
+数式は `$` 記号で囲むことでインライン形式で記述できます。
 
-Math code blocks are denoted by `$$`.
+数式ブロックは `$$` で囲むことで記述します。
 
-If you intend to use the `$` sign instead of math, you can escape it (`\$`), or specify the HTML entity (`&dollar;`) [^2]
+ドル記号 `$` を数学的な意味ではなくそのまま使用したい場合は、エスケープ (`\$`) またはHTMLエンティティ (`&dollar;`) を指定することで対応できます。[^2]
 
-Inline or manually enumerated footnotes are also supported. Click on the links above to see them in action.
+インラインまたは手動で番号を付けた脚注もサポートされています。上記のリンクをクリックして動作を確認してください。
 
-[^2]: \$10 and &dollar;20.
+[^2]: \$10 と &dollar;20.
 
-# Deriving the OLS Estimator
+# OLS推定量の導出
 
-Using matrix notation, let $n$ denote the number of observations and $k$ denote the number of regressors.
+行列表記を用いて、$n$ を観測数、$k$ を説明変数の数とします。
 
-The vector of outcome variables $\mathbf{Y}$ is a $n \times 1$ matrix,
+応答変数のベクトル $\mathbf{Y}$ は $n \times 1$ の行列です。
 
 ```tex
 \mathbf{Y} = \left[\begin{array}
@@ -40,104 +39,3 @@ The vector of outcome variables $\mathbf{Y}$ is a $n \times 1$ matrix,
   y_n
 \end{array}\right]
 ```
-
-$$
-\mathbf{Y} = \left[\begin{array}
-  {c}
-  y_1 \\
-  . \\
-  . \\
-  . \\
-  y_n
-\end{array}\right]
-$$
-
-The matrix of regressors $\mathbf{X}$ is a $n \times k$ matrix (or each row is a $k \times 1$ vector),
-
-```latex
-\mathbf{X} = \left[\begin{array}
-  {ccccc}
-  x_{11} & . & . & . & x_{1k} \\
-  . & . & . & . & .  \\
-  . & . & . & . & .  \\
-  . & . & . & . & .  \\
-  x_{n1} & . & . & . & x_{nn}
-\end{array}\right] =
-\left[\begin{array}
-  {c}
-  \mathbf{x}'_1 \\
-  . \\
-  . \\
-  . \\
-  \mathbf{x}'_n
-\end{array}\right]
-```
-
-$$
-\mathbf{X} = \left[\begin{array}
-  {ccccc}
-  x_{11} & . & . & . & x_{1k} \\
-  . & . & . & . & .  \\
-  . & . & . & . & .  \\
-  . & . & . & . & .  \\
-  x_{n1} & . & . & . & x_{nn}
-\end{array}\right] =
-\left[\begin{array}
-  {c}
-  \mathbf{x}'_1 \\
-  . \\
-  . \\
-  . \\
-  \mathbf{x}'_n
-\end{array}\right]
-$$
-
-The vector of error terms $\mathbf{U}$ is also a $n \times 1$ matrix.
-
-At times it might be easier to use vector notation. For consistency, I will use the bold small x to denote a vector and capital letters to denote a matrix. Single observations are denoted by the subscript.
-
-## Least Squares
-
-**Start**:  
-$$y_i = \mathbf{x}'_i \beta + u_i$$
-
-**Assumptions**:
-
-1. Linearity (given above)
-2. $E(\mathbf{U}|\mathbf{X}) = 0$ (conditional independence)
-3. rank($\mathbf{X}$) = $k$ (no multi-collinearity i.e. full rank)
-4. $Var(\mathbf{U}|\mathbf{X}) = \sigma^2 I_n$ (Homoskedascity)
-
-**Aim**:  
-Find $\beta$ that minimises the sum of squared errors:
-
-$$
-Q = \sum_{i=1}^{n}{u_i^2} = \sum_{i=1}^{n}{(y_i - \mathbf{x}'_i\beta)^2} = (Y-X\beta)'(Y-X\beta)
-$$
-
-**Solution**:  
-Hints: $Q$ is a $1 \times 1$ scalar, by symmetry $\frac{\partial b'Ab}{\partial b} = 2Ab$.
-
-Take matrix derivative w.r.t $\beta$:
-
-```tex
-\begin{aligned}
-  \min Q           & = \min_{\beta} \mathbf{Y}'\mathbf{Y} - 2\beta'\mathbf{X}'\mathbf{Y} +
-  \beta'\mathbf{X}'\mathbf{X}\beta \\
-                   & = \min_{\beta} - 2\beta'\mathbf{X}'\mathbf{Y} + \beta'\mathbf{X}'\mathbf{X}\beta \\
-  \text{[FOC]}~~~0 & =  - 2\mathbf{X}'\mathbf{Y} + 2\mathbf{X}'\mathbf{X}\hat{\beta}                  \\
-  \hat{\beta}      & = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{Y}                              \\
-                   & = (\sum^{n} \mathbf{x}_i \mathbf{x}'_i)^{-1} \sum^{n} \mathbf{x}_i y_i
-\end{aligned}
-```
-
-$$
-\begin{aligned}
-  \min Q           & = \min_{\beta} \mathbf{Y}'\mathbf{Y} - 2\beta'\mathbf{X}'\mathbf{Y} +
-  \beta'\mathbf{X}'\mathbf{X}\beta \\
-                   & = \min_{\beta} - 2\beta'\mathbf{X}'\mathbf{Y} + \beta'\mathbf{X}'\mathbf{X}\beta \\
-  \text{[FOC]}~~~0 & =  - 2\mathbf{X}'\mathbf{Y} + 2\mathbf{X}'\mathbf{X}\hat{\beta}                  \\
-  \hat{\beta}      & = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{Y}                              \\
-                   & = (\sum^{n} \mathbf{x}_i \mathbf{x}'_i)^{-1} \sum^{n} \mathbf{x}_i y_i
-\end{aligned}
-$$

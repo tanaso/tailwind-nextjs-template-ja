@@ -1,38 +1,25 @@
 ---
-title: Sample .md file
+title: サンプル .md ファイル
 date: '2016-03-08'
-tags: ['markdown', 'code', 'features']
+tags: ['markdown', 'コード', '機能']
 draft: false
-summary: Example of a markdown file with code blocks and syntax highlighting
+summary: コードブロックとシンタックスハイライトを含むMarkdownファイルの例
 ---
 
-A sample post with markdown.
+Markdownのサンプル記事です。
 
-## Inline Highlighting
+## インラインハイライト
 
-Sample of inline highlighting `sum = parseInt(num1) + parseInt(num2)`
+インラインハイライトの例：`sum = parseInt(num1) + parseInt(num2)`
 
-## Code Blocks
+## コードブロック
 
-Some Javascript code
+いくつかのJavaScriptコード
 
 ```javascript
 var num1, num2, sum
-num1 = prompt('Enter first number')
-num2 = prompt('Enter second number')
-sum = parseInt(num1) + parseInt(num2) // "+" means "add"
-alert('Sum = ' + sum) // "+" means combine into a string
-```
-
-Some Python code 🐍
-
-```python
-def fib():
-    a, b = 0, 1
-    while True:            # First iteration:
-        yield a            # yield 0 to start with and then
-        a, b = b, a + b    # a will now be 1, and b will also be 1, (0 + 1)
-
-for index, fibonacci_number in zip(range(10), fib()):
-     print('{i:3}: {f:3}'.format(i=index, f=fibonacci_number))
+num1 = prompt('最初の数字を入力してください')
+num2 = prompt('2番目の数字を入力してください')
+sum = parseInt(num1) + parseInt(num2) // "+" は「加算」を意味します
+alert('合計 = ' + sum) // "+" は文字列として結合を意味します
 ```

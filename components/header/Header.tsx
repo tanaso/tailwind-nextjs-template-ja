@@ -1,19 +1,21 @@
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/logo.svg'
-import Link from './Link'
+import Link from '../Link'
 import MobileNav from './MobileNav'
-import ThemeSwitch from './ThemeSwitch'
-import SearchButton from './SearchButton'
+import ThemeSwitch from '../ThemeSwitch'
+import SearchButton from '../SearchButton'
+import SectionContainer from '../SectionContainer'
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-white justify-between py-6'
+  let headerClass = 'flex items-center w-full bg-opacity justify-between py-6'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }
 
   return (
     <header className={headerClass}>
+      {/* <SectionContainer> */}
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center justify-between">
           <div className="mr-3">
@@ -46,6 +48,7 @@ const Header = () => {
         {/* <ThemeSwitch /> */}
         <MobileNav />
       </div>
+      {/* </SectionContainer> */}
     </header>
   )
 }

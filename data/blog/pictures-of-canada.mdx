@@ -1,22 +1,22 @@
 ---
-title: O Canada
+title: 'O Canada'
 date: '2017-07-15'
-tags: ['holiday', 'canada', 'images']
+tags: ['休日', 'カナダ', '画像']
 draft: false
 layout: PostBanner
 images: ['/static/images/canada/mountains.jpg']
-summary: The scenic lands of Canada featuring maple leaves, snow-capped mountains, turquoise lakes and Toronto. Take in the sights in this photo gallery exhibition and see how easy it is to replicate with some MDX magic and tailwind classes.
+summary: カナダの美しい景色を特集したフォトギャラリー。紅葉、雪を冠した山々、ターコイズブルーの湖、トロントの景観をお楽しみください。このギャラリーはMDXのマジックとTailwind CSSで簡単に再現できます。
 ---
 
-The scenic lands of Canada featuring maple leaves, snow-capped mountains, turquoise lakes and Toronto. Take in the sights in this photo gallery exhibition and see how easy it is to replicate with some MDX magic and tailwind classes.
+カナダの美しい景色を特集したフォトギャラリー。紅葉、雪を冠した山々、ターコイズブルーの湖、トロントの景観をお楽しみください。このギャラリーはMDXのマジックとTailwind CSSで簡単に再現できます。
 
-Features images served using `next/image` component. The locally stored images are located in a folder with the following path: `/static/images/canada/[filename].jpg`
+画像は`next/image`コンポーネントを使用して提供されます。ローカルに保存された画像は以下のパスに配置されています：`/static/images/canada/[ファイル名].jpg`
 
-Since we are using mdx, we can create a simple responsive flexbox grid to display our images with a few tailwind css classes.
+MDXを使用することで、簡単なレスポンシブフレックスボックスグリッドをTailwind CSSクラスを使って作成し、画像を表示できます。
 
 ---
 
-# Gallery
+# ギャラリー
 
 <div className="-mx-2 flex flex-wrap overflow-hidden xl:-mx-2">
   <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
@@ -33,7 +33,7 @@ Since we are using mdx, we can create a simple responsive flexbox grid to displa
   </div>
 </div>
 
-# Implementation
+# 実装方法
 
 ```js
 <div className="-mx-2 flex flex-wrap overflow-hidden xl:-mx-2">
@@ -51,32 +51,3 @@ Since we are using mdx, we can create a simple responsive flexbox grid to displa
   </div>
 </div>
 ```
-
-With MDX v2, one can interleave markdown in jsx as shown in the example code.
-
-### Photo Credits
-
-<div>
-  Maple photo by [Guillaume
-  Jaillet](https://unsplash.com/@i_am_g?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-  on
-  [Unsplash](https://unsplash.com/s/photos/canada?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-</div>
-<div>
-  Mountains photo by [John
-  Lee](https://unsplash.com/@john_artifexfilms?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-  on
-  [Unsplash](https://unsplash.com/s/photos/canada?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-</div>
-<div>
-  Lake photo by [Tj
-  Holowaychuk](https://unsplash.com/@tjholowaychuk?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-  on
-  [Unsplash](https://unsplash.com/s/photos/canada?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-</div>
-<div>
-  Toronto photo by [Matthew
-  Henry](https://unsplash.com/@matthewhenry?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-  on
-  [Unsplash](https://unsplash.com/s/photos/canada?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-</div>
