@@ -10,6 +10,11 @@ export default function Home({ posts }) {
   return (
     <>
       <div className="divide-y divide-gray-200">
+        <img
+          src="/static/images/time-machine.jpg"
+          alt="banner"
+          className="h-full w-screen object-cover"
+        />
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Latest
