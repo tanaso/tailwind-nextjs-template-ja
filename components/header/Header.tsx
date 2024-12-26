@@ -8,7 +8,7 @@ import SearchButton from '../SearchButton'
 import SectionContainer from '../SectionContainer'
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-opacity justify-between py-6'
+  let headerClass = 'flex items-center w-full bg-opacity justify-between py-4'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }

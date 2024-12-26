@@ -5,6 +5,15 @@ import { formatDate } from 'pliny/utils/formatDate'
 function ArticleExcerpt({ post, locale }) {
   const { slug, date, title, summary, tags } = post
 
+  // 最大文字数
+  const MAX_SUMMARY_LENGTH = 100
+
+  // summaryが存在し、100文字を超える場合は切り取り＆"..."を付与
+  const truncatedSummary =
+    summary?.length > MAX_SUMMARY_LENGTH
+      ? summary.substring(0, MAX_SUMMARY_LENGTH) + '...'
+      : summary
+
   return (
     <li className="py-4">
       <article>
@@ -18,7 +27,7 @@ function ArticleExcerpt({ post, locale }) {
           <div className="xl:col-span-3">
             <div className="">
               <div>
-                <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                <h2 className="text-xl font-bold leading-8 tracking-tight">
                   <Link href={`/blog/${slug}`} className="text-gray-900">
                     {title}
                   </Link>
@@ -29,7 +38,7 @@ function ArticleExcerpt({ post, locale }) {
                   ))}
                 </div> */}
               </div>
-              <div className="prose max-w-none text-gray-500">{summary}</div>
+              <div className="prose max-w-none text-gray-500">{truncatedSummary}</div>
             </div>
             <div className="text-base font-medium leading-6">
               <Link

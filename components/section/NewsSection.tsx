@@ -10,7 +10,7 @@ export default function NewsSection({ posts }) {
     <SectionContainer>
       <div className="divide-y divide-gray-200">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-xl font-bold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+          <h1 className="text-2xl font-bold leading-9 tracking-tight text-gray-900 sm:text-2xl sm:leading-10 md:text-2xl md:leading-14">
             お知らせ
           </h1>
           <p className="text-lg leading-7 text-gray-500">{siteMetadata.description}</p>
