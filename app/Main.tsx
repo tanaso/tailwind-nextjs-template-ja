@@ -1,17 +1,12 @@
 import NewsSection from '@/components/section/NewsSection'
 import ThreeColumnSection from '@/components/section/ThreeColumnSection'
 import AccessSection from '@/components/section/AccessSection'
+import TopImage from '@/components/section/TopImage'
 
 export default function Home({ posts }) {
   return (
     <>
-      <div className="relative">
-        <img
-          src="/static/images/forest.webp"
-          alt="banner"
-          className="h-screen w-screen object-cover"
-        />
-      </div>
+      <TopImage text={'唯一無二の空間を創造するお客様の理想を形にする'} />
       <ThreeColumnSection />
       <NewsSection posts={posts} />
       <AccessSection />
