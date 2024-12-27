@@ -7,7 +7,7 @@ export default function Home({ posts }) {
     <>
       <div className="relative">
         <img
-          src="/static/images/time-machine.jpg"
+          src="/static/images/forest.webp"
           alt="banner"
           className="h-screen w-screen object-cover"
         />

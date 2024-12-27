@@ -98,9 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           {/* <SearchProvider searchConfig={siteMetadata.search as SearchConfig}> */}
-          <SectionContainer>
-            <Header />
-          </SectionContainer>
+          <Header />
           <main className="mb-auto">{children}</main>
           {/* </SearchProvider> */}
           {/* <SimpleFooter /> */}
