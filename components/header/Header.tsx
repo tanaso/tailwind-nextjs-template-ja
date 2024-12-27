@@ -13,10 +13,14 @@ import { usePathname } from 'next/navigation'
 
 const Header = () => {
   const pathname = usePathname()
-  let headerClass =
-    'mx-auto w-full max-w-6xl fixed left-0 right-0 top-1 z-10 py-2 dark:bg-dark/75 md:rounded-2xl'
+  const isOverlayPath = pathname === '/'
+
+  let headerClass = 'mx-auto w-full max-w-6xl py-4 dark:bg-dark/75 md:rounded-2xl'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
+  }
+  if (isOverlayPath) {
+    headerClass += ' fixed left-0 right-0 z-10'
   }
 
   return (
