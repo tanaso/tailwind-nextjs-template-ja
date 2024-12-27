@@ -1,4 +1,5 @@
 import SectionContainer from '@/components/SectionContainer'
+import Image from 'next/image'
 
 export default function TopImageSection({ text }) {
   return (
